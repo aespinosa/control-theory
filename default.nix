@@ -38,10 +38,17 @@ let
       sha256 = "dd8172a14df9fef212be7c7c60353561c2042e54ac78a37ed5c12c2b2a2119af";
     };
   };
+  gnuplotRuby = buildRubyGem {
+    gemName = "gnuplot-2.6.2";
+    src = pkgs.fetchurl {
+      url = "https://rubygems.org/downloads/gnuplot-2.6.2.gem";
+      sha256 = "d2c28d4a55867ef6f0a5725ce157581917b4d27417bc3767c7c643a828416bb3";
+    };
+  };
 in rec {
   notebookEnv = stdenv.mkDerivation {
     name = "controlTheory";
     buildInputs = [ pkgs.python3Packages.notebook iruby multi_json bond
-                    mimemagic rbczmq ];
+                    mimemagic rbczmq gnuplotRuby pkgs.gnuplot ];
   };
 }
