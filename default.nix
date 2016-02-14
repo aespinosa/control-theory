@@ -45,10 +45,18 @@ let
       sha256 = "d2c28d4a55867ef6f0a5725ce157581917b4d27417bc3767c7c643a828416bb3";
     };
   };
+  gslRuby = buildRubyGem {
+    gemName = "gsl-1.16.0.6";
+    buildInputs = [ pkgs.gsl_1 ];
+    src = pkgs.fetchurl {
+      url = "https://rubygems.org/downloads/gsl-1.16.0.6.gem";
+      sha256 = "3fa354277d68a729e239a8c9eb3408f2978a444b7da3708cff120a9cb69cdcff";
+    };
+  };
 in rec {
   notebookEnv = stdenv.mkDerivation {
     name = "controlTheory";
     buildInputs = [ pkgs.python3Packages.notebook iruby multi_json bond
-                    mimemagic rbczmq gnuplotRuby pkgs.gnuplot ];
+                    mimemagic rbczmq gnuplotRuby pkgs.gnuplot gslRuby ];
   };
 }
