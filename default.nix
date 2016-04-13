@@ -65,5 +65,19 @@ in rec {
     name = "controlTheory";
     buildInputs = [ pkgs.python3Packages.notebook iruby multi_json bond
                     mimemagic rbczmq gnuplotRuby pkgs.gnuplot gslRuby ];
+    src = ./.;
+    builder = builtins.toFile "builder.sh" ''#!/bin/bash
+      source $stdenv/setup
+      ls
+      ls
+      pwd
+      echo $PWD
+      mkdir -p $out;
+      export JUPYTER_CONFIG_DIR=$PWD/jupyter
+      export JUPYTER_PATH=$PWD/jupyter
+      iruby register --ipython-dir=$JUPYTER_CONFIG_DIR
+      jupyter nbconvert --exec --to html $src/chapter14.ipynb
+      mv chapter14.html $out/
+    '';
   };
 }
