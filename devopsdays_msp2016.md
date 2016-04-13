@@ -38,6 +38,14 @@ Notice how it looks the same (without the Pager!)
 
 Page 3 & 4 of <http://espinosa.io/control-theory/sketches.pdf>
 
+## Ways to correct errors
+
+* Proportional - error multiplied by a constant
+* Integral - total error accumulated over time
+* Differential - change in the error previously
+
+Make analogies on how that looks like in an AWS Autoscaling policy
+
 ## Demo
 
 * webapp deployed on Kubernetes
