@@ -32,6 +32,11 @@ Notice how it looks the same (without the Pager!)
 
 ## What makes a good feedback loop?
 
+* Stabiliy 
+* Performance
+* Accuracy
+
+Page 3 & 4 of <http://espinosa.io/control-theory/sketches.pdf>
 
 ## Demo
 
