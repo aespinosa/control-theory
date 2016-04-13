@@ -61,3 +61,8 @@ Make analogies on how that looks like in an AWS Autoscaling policy
 It should look something like `Out[5]` in <http://espinosa.io/control-theory/chapter13.html>.
 
 ## End
+
+References:
+
+* Janert, *Feedback Control for Computer Systems* <http://amzn.com/1449361692>
+* Hellerstein et. al., *Feedback Control of Computing Systems* <http://amzn.com/047126637X>
