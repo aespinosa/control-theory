@@ -24,6 +24,11 @@ Notice how it looks the same (without the Pager!)
 * *apply change* to input that counteracts deviations of the output to the
   reference value.
 
+Ops example:
+> * you get paged for server load
+> * you add instances
+> * you go back to sleep
+
 ## Autoscaling
 
 * desired reference value - your Ops target
