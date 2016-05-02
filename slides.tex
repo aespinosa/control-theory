@@ -3,18 +3,54 @@
   \setuplayout[
     width=fit,
     height=fit,
-    header=0pt
+    header=0pt,
+    footer=14pt,
+    footerdistance=3pt,
+    bottomspace=1pt
   ]
   \setupcolors[state=start]
   \setuppagenumber[state=stop]
 
   \definecolor[offblack][r=.133, g=.133, b=.133]
-  \setupbackgrounds[page][background=color, backgroundcolor=darkblue]
+  \setupbackgrounds[page][background=color, backgroundcolor=offblack]
   \startcolor[white]
+  
+  \usemodule[simplefonts]
+  \setmainfont[Source Sans Pro]
+  \switchtobodyfont[24pt]
+  \definestartstop[Slide][
+    %commands={\switchtobodyfont[24pt]},
+    before=\page\dontleavehmode\vfill,
+    after=\vfill
+  ]
+
+  \define[1]\SlideTitle{
+    \midaligned{ \tfb #1 }
+    \blank[line]
+  }
+  \setupfooter[color=white]
 \stopmode
 
 \starttext
+\showframe
+\setupfootertexts[@AllanEspinosa]
+
+\startSlide
+
+\SlideTitle{@AllanEspinosa}
+
+\midaligned{ @AllanEspinosa }
 
 Hello world
+
+\stopSlide
+
+\startSlide
+Hello world
+
+$$ 
+u(t) = \int^a_b e(t) dt
+$$
+\stopSlide
 
 \stoptext
