@@ -17,35 +17,46 @@
   
   \usemodule[simplefonts]
   \setmainfont[Source Sans Pro]
-  \switchtobodyfont[24pt]
-  \definestartstop[Slide][
-    %commands={\switchtobodyfont[24pt]},
-    before=\page\dontleavehmode\vfill,
-    after=\vfill
-  ]
 
   \define[1]\SlideTitle{
     \midaligned{ \tfb #1 }
     \blank[line]
   }
   \setupfooter[color=white]
+
+  % Slide macros
+  \def\startSlide{\directsetup{slide:start}}
+  \def\stopSlide{\directsetup{slide:stop}}
+
+  \startsetups slide:start
+    \start
+    \switchtobodyfont[24pt]
+    \dontleavehmode \vfill
+  \stopsetups
+
+  \startsetups slide:stop
+    \vfill
+    \page
+    \stop
+  \stopsetups
+  \setupfootertexts[@AllanEspinosa]
 \stopmode
 
 \starttext
-\showframe
-\setupfootertexts[@AllanEspinosa]
 
 \startSlide
+\setupfooter[state=stop]
 
 \SlideTitle{@AllanEspinosa}
 
 \midaligned{ @AllanEspinosa }
 
-Hello world
+Foo bar
 
 \stopSlide
 
 \startSlide
+
 Hello world
 
 $$ 
