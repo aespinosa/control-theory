@@ -66,6 +66,9 @@ in rec {
     buildInputs = [ pkgs.python3Packages.notebook iruby multi_json bond
                     mimemagic rbczmq gnuplotRuby pkgs.gnuplot gslRuby ];
     src = ./.;
+    shellHook = ''
+      iruby register --force
+    '';
     builder = builtins.toFile "builder.sh" ''#!/bin/bash
       source $stdenv/setup
       ls
