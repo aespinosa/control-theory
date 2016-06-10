@@ -69,18 +69,17 @@ in rec {
     shellHook = ''
       iruby register --force
     '';
-    builder = builtins.toFile "builder.sh" ''#!/bin/bash
-      source $stdenv/setup
-      ls
-      ls
-      pwd
-      echo $PWD
-      mkdir -p $out;
+
+    buildCommand = ''
+      mkdir -p jupyter
       export JUPYTER_CONFIG_DIR=$PWD/jupyter
-      export JUPYTER_PATH=$PWD/jupyter
-      iruby register --ipython-dir=$JUPYTER_CONFIG_DIR
-      jupyter nbconvert --exec --to html $src/chapter14.ipynb
-      mv chapter14.html $out/
+      export JUPYTER_DATA_DIR=$PWD/jupyter
+
+      iruby register --ipython-dir=$JUPYTER_DATA_DIR
+
+      mkdir -p $out
+
+      jupyter nbconvert --execute --output-dir $out $src/*.ipynb
     '';
   };
 }
