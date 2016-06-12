@@ -61,7 +61,39 @@
 
 \midaligned{ @AllanEspinosa }
 
-Foo bar
+\stopSlide
+
+\startSlide
+
+\SlideTitle{Your Distributed System}
+
+\stopSlide
+
+\startmode[manuscript]
+Receive load, 
+
+monitoring system receives performance metrics. Depending on the thresholds you
+set in Nagios, you get paged. 
+
+You wake up at 2am. SSH to instances (*gasp!*) or update your Chef environment
+attributes. Converge chef. Check if alerts clear.
+
+Then finally go to sleep.
+\stopmode
+
+\startSlide
+\SlideTitle{Your Thermostat}
+
+\stopSlide
+
+\startmode[manuscript]
+Notice how everything look the same. Except for an Ops person being woken up to
+adjust the thermostat.
+
+You may have to wake up if you didn't set the thermostat properly. But that's a
+different problem for now.
+\stopmode
+
 
 \stopSlide
 
