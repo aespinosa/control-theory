@@ -28,11 +28,10 @@
   \startsetups slide:start
     \start
     \switchtobodyfont[24pt]
-    \dontleavehmode \vfill
+    \dontleavehmode
   \stopsetups
 
   \startsetups slide:stop
-    \vfill
     \page
     \stop
   \stopsetups
@@ -55,9 +54,11 @@
 \startSlide
 \setupfooter[state=stop]
 
+\vfill
 \SlideTitle{Autoscaling Containers\ldots with Math}
 
 \midaligned{ @AllanEspinosa }
+\vfill
 
 \stopSlide
 
@@ -130,6 +131,12 @@ Input
 Output
 
 Target Output
+
+\startMPcode
+
+fill fullcircle scaled 200pt withcolor red; 
+
+\stopMPcode
 
 \stopSlide
 
