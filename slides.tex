@@ -134,8 +134,42 @@ Then finally go to sleep.
 \stopmode
 
 \startSlide
-\SlideTitle{Your Thermostat}
 
+\SlideTitle{Your Aircon}
+
+\switchtobodyfont[16pt]
+\startMPcode
+
+.PS
+
+arrowht = 0.2
+arrowwid = 0.1
+linethick = 2
+linewid = 1.0
+
+line right "Set Temperature" above rjust ->
+
+ellipse "Thermostat" wid 1.3 ht 0.7
+
+line right -> "Valve" above
+
+box "Coolant" wid 1.3 ht 0.7
+
+line right 2 "Actual Temperature" above ->
+
+line from last line.c down 1.5 then left ->
+
+box "Sensor" wid 1.3 ht 0.7
+
+line from Here to (1st ellipse.s.x, Here.y) then up to 1st ellipse.s ->
+
+line from 1st box.n up <-
+"The Weather" at Here above
+
+
+.PE
+
+\stopMPcode
 \stopSlide
 
 \startmode[manuscript]
