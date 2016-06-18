@@ -291,6 +291,32 @@ the observed behavior. In this case, CPU utilization. The actual workload of
 traffic affects the utilization but we can't do that much about it. You can't
 stop people from buying thing in your shopping side. 
 
+Feedback in a more general term is using what we learned so far and apply it to
+the next iteration of our planning. The same goes with the discipline in control
+theory.
+
+We have a system where we control the input. Results in certain output. We then 
+compare it to our desired output and then adjust the input we give to the
+system.
+
+In the example in OPS, we have an objective for our system like let's say
+maintain 60\% CPU utilization.  Our system receives traffic and registers a
+corresponding status of its current CPU utilization.  When some thresholds are
+reached in our alerting system like Nagios or PagerDuty, we wake up at 2am.
+
+We look at what's happening and then decide. Do we continue to sleep or do
+something about it?  We can add instances.  Next we observe and wait for a while
+before we finally go back to bed... And finally take the morning off at work.
+
+Similar to our Thermostat controller as well.
+
+In the next few slides, I will talk about several concepts in control theory
+on what makes a good automation system.  We will look at the basic concept of
+autoscaling in Kuberenetes.
+
+Control theory has some math behind it to decide what makes a good feedback
+loop.
+
 \stopmode
 
 \startSlide
