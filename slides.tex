@@ -48,7 +48,7 @@
   \let\startSlide\startframedtext
   \let\stopSlide\stopframedtext
 
-  \define[1]\SlideTitle{\midaligned{#1}\blank[small]}
+  \define[1]\SlideTitle{\midaligned{\bf #1}\blank[small]}
 \stopmode
 
 \def\startNote{\startmode[manuscript]}
@@ -86,7 +86,7 @@
 
 \SlideTitle{Your Distributed System}
 
-\switchtobodyfont[16pt]
+\tfxx
 \startMPcode
 
 .PS
@@ -142,7 +142,7 @@ several factors.
 
 \SlideTitle{Your Aircon}
 
-\switchtobodyfont[16pt]
+\tfxx
 \startMPcode
 
 .PS
@@ -241,7 +241,7 @@ did.
 
 \vfill
 
-\switchtobodyfont[16pt]
+\tfxx
 \startMPcode
 .PS
 arrowht = 0.2
@@ -323,7 +323,7 @@ loop.
 
 \SlideTitle{Autoscaling}
 
-\switchtobodyfont[16pt]
+{\tfxx
 \startMPcode
 .PS
 
@@ -357,6 +357,7 @@ line from 1st box.n up <-
 .PE
 
 \stopMPcode
+}
 
 Autoscaling is a great example of feedback control.
 
