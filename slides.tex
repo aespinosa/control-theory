@@ -343,7 +343,19 @@ System input: number of instances in the replication controller
 
 Target output : desired CPU utilization
 
+Details:
+https://github.com/kubernetes/kubernetes/blob/release-1.2/docs/design/horizontal-pod-autoscaler.md#horizontalpodautoscaler-object
+http://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/
+
 \stopSlide
+
+\startNote
+
+Kubernetes has a basic facility for autoscaling Replicaton controller based on
+CPU utilization.  It basically updates the number of instances of your container
+based on the rules you set in the HPA API object.
+
+\stopmode
 
 \startSlide
 
