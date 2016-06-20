@@ -1,3 +1,5 @@
+\useexternalfigure[engineyard-logo][https://www.engineyard.com/images/company/presskit/EY_Logotype_red.png]
+
 \startmode[presentation]
   \setuppapersize[S6][S6]
   \setuplayout[
@@ -38,7 +40,10 @@
     \stop
   \stopsetups
 
-  \setupfootertexts[][@AllanEspinosa]
+  \startsetups[footer]
+    \externalfigure[engineyard-logo][height=14pt]
+  \stopsetups
+  \setupfootertexts[@AllanEspinosa][\setup{footer}]
 \stopmode
 
 \startmode[manuscript]
@@ -74,7 +79,7 @@
 \vfill
 
 \dontleavehmode
-\externalfigure[https://www.engineyard.com/images/company/presskit/EY_Logotype_red.png][width=0.4\textwidth]
+\externalfigure[engineyard-logo][width=0.4\textwidth]
 \hfill
 \externalfigure[logo.svg][width=0.4\textwidth]
 
