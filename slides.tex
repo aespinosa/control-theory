@@ -557,7 +557,7 @@ draw ( (0, 3.5u)
 
 \startSlide
 \vfill
-\startMPcode
+\startuseMPgraphic{stable-error}
 
 u := 600bp / 25;
 
@@ -581,14 +581,19 @@ draw ( (0, -4.5u)
     -- (k*u, -4.5*((0.6)**k)*u)
   endfor );
 
-\stopMPcode
+\stopuseMPgraphic
+
+\useMPgraphic{stable-error}
 \vfill
 
 \stopSlide
 
 \startSlide
 
+\vfill
 \SlideTitle{Accuracy}
+\useMPgraphic{stable-error}
+\vfill
 
 \stopSlide
 
