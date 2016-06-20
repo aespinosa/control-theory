@@ -431,6 +431,159 @@ $$ y(k + 1) = a y(k) + b u(k) $$
 
 \SlideTitle{Stability}
 
+\vfill
+\startMPcode
+
+u := 600bp / 25;
+
+pickup pencircle scaled 1bp;
+
+drawarrow (0,-5u) -- (20u, -5u);
+drawarrow (0,-5u) -- (0, 5u);
+
+pickup pencircle scaled 2bp;
+draw (0, 0u) -- (20u, 0u) dashed dashpattern(on 0.5u off 0.6u);
+
+for k=0 upto 18:
+  pickup pencircle scaled 8bp;
+  y := (-1.08)**(k);
+  draw (k*u, y*u);
+endfor
+
+pickup pencircle scaled 3bp;
+draw ( (0, u)
+  for k=0 upto 18:
+    -- (k*u, ((-1.08)**k)*u)
+  endfor );
+
+\stopMPcode
+\vfill
+
+\stopSlide
+
+\startSlide
+
+\vfill
+\startMPcode
+
+u := 600bp / 25;
+
+pickup pencircle scaled 1bp;
+
+drawarrow (0,-u) -- (20u, -u);
+drawarrow (0,-u) -- (0, 10u);
+
+pickup pencircle scaled 2bp;
+draw (0, 3u) -- (20u, 3u) dashed dashpattern(on 0.5u off 0.6u);
+
+for k=0 upto 18:
+  pickup pencircle scaled 8bp;
+  y := (1.12)**(k);
+  draw (k*u, y*u);
+endfor
+
+pickup pencircle scaled 3bp;
+draw ( (0, u)
+  for k=0 upto 18:
+    -- (k*u, ((1.12)**k)*u)
+  endfor );
+
+\stopMPcode
+
+\vfill
+\stopSlide
+
+\startSlide
+
+\vfill
+\startMPcode
+
+u := 600bp / 25;
+
+pickup pencircle scaled 1bp;
+
+drawarrow (0,-5u) -- (20u, -5u);
+drawarrow (0,-5u) -- (0, 5u);
+
+pickup pencircle scaled 2bp;
+draw (0, 0u) -- (20u, 0u) dashed dashpattern(on 0.5u off 0.6u);
+
+for k=0 upto 19:
+  pickup pencircle scaled 8bp;
+  y := (-1.0)**(k);
+  draw (k*u, 3.5y*u);
+endfor
+
+pickup pencircle scaled 3bp;
+draw ( (0, 3.5u)
+  for k=0 upto 19:
+    -- (k*u, 3.5*((-1.0)**k)*u)
+  endfor );
+
+\stopMPcode
+\vfill
+\stopSlide
+
+\startSlide
+
+\vfill
+\startMPcode
+
+u := 600bp / 25;
+
+pickup pencircle scaled 1bp;
+
+drawarrow (0,-5u) -- (20u, -5u);
+drawarrow (0,-5u) -- (0, 5u);
+
+pickup pencircle scaled 2bp;
+draw (0, 0u) -- (20u, 0u) dashed dashpattern(on 0.5u off 0.6u);
+
+for k=0 upto 19:
+  pickup pencircle scaled 8bp;
+  y := (-0.9)**(k);
+  draw (k*u, 3.5y*u);
+endfor
+
+pickup pencircle scaled 3bp;
+draw ( (0, 3.5u)
+  for k=0 upto 19:
+    -- (k*u, 3.5*((-0.9)**k)*u)
+  endfor );
+
+\stopMPcode
+\vfill
+\stopSlide
+
+\startSlide
+\vfill
+\startMPcode
+
+u := 600bp / 25;
+
+pickup pencircle scaled 1bp;
+
+drawarrow (0,-5u) -- (20u, -5u);
+drawarrow (0,-5u) -- (0, 2u);
+
+pickup pencircle scaled 2bp;
+draw (0, -0.5u) -- (20u, -0.5u) dashed dashpattern(on 0.5u off 0.6u);
+
+for k=0 upto 19:
+  pickup pencircle scaled 8bp;
+  y := (0.6)**(k);
+  draw (k*u, -4.5y*u);
+endfor
+
+pickup pencircle scaled 3bp;
+draw ( (0, -4.5u)
+  for k=0 upto 19:
+    -- (k*u, -4.5*((0.6)**k)*u)
+  endfor );
+
+\stopMPcode
+\vfill
+
 \stopSlide
 
 \startSlide
