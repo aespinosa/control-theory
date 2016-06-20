@@ -626,6 +626,43 @@ subtracting instances all the time.
 
 \startSlide
 
+\SlideTitle{Proportional Control}
+$$ u_P(k) = K_P e(k) $$
+
+\startitemize
+  \item inherently inaccurate
+  \item $K_P$ increases overshoot and settling time
+\stopitemize
+
+\stopSlide
+
+\startSlide
+
+\SlideTitle{Integral Control}
+$$ u_I(k) = u_I(k-1) + K_I e(k) $$
+
+\startitemize
+  \item reduce steady-state error
+  \item increase settling times
+\stopitemize
+
+\stopSlide
+
+\startSlide
+
+\SlideTitle{Derivative Control}
+
+$$ u_D(k) = K_D \[ e(k) - e(k-1) \] $$
+
+\startitemize
+  \item decrease settling times
+  \item sensitive to noise
+\stopitemize
+
+\stopSlide
+
+\startSlide
+
 \SlideTitle{Non-linearity}
 
 \externalfigure[nonlinear.pdf][width=\textwidth]
