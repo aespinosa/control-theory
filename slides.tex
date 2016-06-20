@@ -230,6 +230,55 @@ did.
 
 \startSlide
 
+\SlideTitle{Autoscaling}
+
+{\tfxx
+\startMPcode
+.PS
+
+arrowht = 0.2
+arrowwid = 0.1
+linethick = 2
+linewid = 1.0
+
+"Target" at Here rjust
+line right 0.5 ->
+
+ellipse "HPA" wid 1.3 ht 0.7
+
+line right 2.0 -> "Number of Pods" above
+
+box "RC" wid 1.3 ht 0.7
+
+line right 2 "Utilization" above ->
+
+line from last line.c down 1.5 then left ->
+
+box "Heapster" wid 1.3 ht 0.7
+
+line from Here to (1st ellipse.s.x, Here.y) then up to 1st ellipse.s -> "Utilization" ljust
+
+
+line from 1st box.n up <-
+"Traffic" at Here above
+
+
+.PE
+
+\stopMPcode
+}
+
+\vfill
+{\tfxx
+\useURL[kube-docs][http://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/]
+\from[kube-docs]
+}
+
+\stopSlide
+
+
+\startSlide
+
 \SlideTitle{Control Theory}
 
 \startitemize[columns]
@@ -330,62 +379,6 @@ edition, 1901. }
 
 \stopSlide
 
-\startSlide
-
-\SlideTitle{Autoscaling}
-
-{\tfxx
-\startMPcode
-.PS
-
-arrowht = 0.2
-arrowwid = 0.1
-linethick = 2
-linewid = 1.0
-
-"Target" at Here rjust
-line right 0.5 ->
-
-ellipse "HPA" wid 1.3 ht 0.7
-
-line right 2.0 -> "Number of Pods" above
-
-box "RC" wid 1.3 ht 0.7
-
-line right 2 "Utilization" above ->
-
-line from last line.c down 1.5 then left ->
-
-box "Heapster" wid 1.3 ht 0.7
-
-line from Here to (1st ellipse.s.x, Here.y) then up to 1st ellipse.s -> "Utilization" ljust
-
-
-line from 1st box.n up <-
-"Traffic" at Here above
-
-
-.PE
-
-\stopMPcode
-}
-
-Autoscaling is a great example of feedback control.
-
-
-Horizontal Pod Autoscaler
-
-System output : current CPU utilization
-
-System input: number of instances in the replication controller
-
-Target output : desired CPU utilization
-
-Details:
-https://github.com/kubernetes/kubernetes/blob/release-1.2/docs/design/horizontal-pod-autoscaler.md#horizontalpodautoscaler-object
-http://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/
-
-\stopSlide
 
 \startNote
 
