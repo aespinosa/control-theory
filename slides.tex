@@ -615,7 +615,57 @@ subtracting instances all the time.
 \startSlide
 
 \SlideTitle{Settling time}
-\externalfigure[settling.pdf][width=0.5\textwidth]
+%\externalfigure[settling.pdf][width=0.5\textwidth]
+
+\startMPcode
+u := 600bp / 25;
+
+pickup pencircle scaled 1bp;
+
+drawarrow (0,-3.3u) -- (20u, -3.3u);
+drawarrow (0,-3.3u) -- (0, 2u);
+
+pickup pencircle scaled 2bp;
+draw (0, 0.5u) -- (20u, 0.5u) dashed dashpattern(on 0.5u off 0.6u);
+
+for k=0 upto 19:
+  pickup pencircle scaled 8bp;
+  y := (0.6)**(k);
+  draw (k*u, -3.0y*u);
+endfor
+
+pickup pencircle scaled 3bp;
+draw ( (0, -3.0u)
+  for k=0 upto 19:
+    -- (k*u, -3.0*((0.6)**k)*u)
+  endfor );
+\stopMPcode
+\vfill
+
+\startMPcode
+u := 600bp / 25;
+
+pickup pencircle scaled 1bp;
+
+drawarrow (0,-3.3u) -- (20u, -3.3u);
+drawarrow (0,-3.3u) -- (0, 2u);
+
+pickup pencircle scaled 2bp;
+draw (0, 0.5u) -- (20u, 0.5u) dashed dashpattern(on 0.5u off 0.6u);
+
+for k=0 upto 19:
+  pickup pencircle scaled 8bp;
+  y := (0.8)**(k);
+  draw (k*u, -3.0y*u);
+endfor
+
+pickup pencircle scaled 3bp;
+draw ( (0, -3.0u)
+  for k=0 upto 19:
+    -- (k*u, -3.0*((0.80)**k)*u)
+  endfor );
+\stopMPcode
+
 
 \stopSlide
 
