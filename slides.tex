@@ -740,9 +740,78 @@ label(btex $y$ etex, 1/2 * (peak - dir(0)*2.5u + (5u, -0.5u) - dir(0)*2.5u) );
 
 $ u_P(k) = K_P e(k) $
 
-\externalfigure[proportional.pdf][width=0.8\textwidth]
+%\externalfigure[proportional.pdf][width=0.8\textwidth]
+\startMPcode
+u := 600bp / 25;
+v := 600bp / 15;
+
+pickup pencircle scaled 1bp;
+
+drawarrow (0,-5v) -- (20u, -5v);
+drawarrow (0,-5v) -- (0, 2v);
+
+pickup pencircle scaled 2bp;
+reference := -0.5v;
+draw (0, reference) -- (20u, reference) dashed dashpattern(on 0.5u off 0.6u);
+
+
+pair peak;
+peak := (5u, 2v);
+
+yk := -1.7v;
+yk1 := 1.3v;
+pickup pencircle scaled 8bp;
+draw (0, -4.5v);
+draw (u, -3.8v);
+draw (2u, -2.8v);
+draw (3u, yk);
+draw (4u, yk1);
+
+pickup pencircle scaled 3bp;
+draw (0, -4.5v)
+    .. (u, -3.8v)
+    .. (2u, -2.8v)
+    .. (3u, yk)
+    .. (4u, yk1)
+    .. (5u, 1.5v)
+    .. (6u, 1.4v)
+    .. (7u, 1.2v)
+    .. (8u, 1.0v)
+    .. (9u, 0.8v)
+    .. (10u, 0.5v)
+    .. (11u, 0.3v)
+    .. (12u, 0.2v)
+    .. (13u, 0.1v)
+    .. (14u, 0)
+    .. (15u, 0)
+    .. (16u, 0)
+    .. (17u, 0)
+    .. (18u, 0)
+    .. (19u, 0);
+
+pickup pencircle scaled 3bp;
+
+pickup pencircle scaled 1bp;
+drawdblarrow (3u, reference) - dir(0)*u -- (3u, yk) - dir(0)*u;
+draw (3u, reference)-- (3u, reference) - dir(0)*1.5u;
+draw (3u, yk)-- (3u, yk) - dir(0)*1.5u;
+label.lft(btex {\smaller $e(k)$} etex, 1/2 * ((3u, reference) + (3u, yk) ) - dir(0)*1.2u );
+
+drawdblarrow (4u, yk1) + dir(0)*u -- (4u, yk) + dir(0)*u;
+draw (4u, yk1)-- (4u, yk1) + dir(0)*1.5u;
+draw (3u, yk)-- (4u, yk) + dir(0)*1.5u;
+label.rt(btex {\smaller $K_pe(k)$} etex, 1/2 * ((4u, yk1) + (4u, yk) ) + dir(0)*2.0u + dir(90)*u);
+
+
+\stopMPcode
 
 \stopSlide
+
+\startNote
+
+Assuming $y(k + 1) = y(k) + u(k)$.
+
+\stopmode
 
 \startSlide
 
