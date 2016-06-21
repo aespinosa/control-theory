@@ -736,6 +736,53 @@ label(btex $y$ etex, 1/2 * (peak - dir(0)*2.5u + (5u, -0.5u) - dir(0)*2.5u) );
 
 \startSlide
 
+\SlideTitle{Controllers}
+
+\tfxx
+\startMPcode
+.PS
+arrowht = 0.2
+arrowwid = 0.1
+linethick = 2
+linewid = 1.0
+
+boxwid = 1.4
+boxht = 1.0
+
+
+"$r(k)$" at Here rjust
+line right 0.5 -> "$+$" above ljust
+
+circle rad 0.18
+
+line right -> "$e(k)$" above
+
+box "$C(z)$"
+
+line right -> "$u(k)$" above
+
+box "$G(z)$"
+
+line right ->
+
+"$y(k)$" at Here ljust
+
+move to last line.c
+line down boxht  then left (Here.x - 1st circle.s.x)
+
+line -> to 1st circle.s "$-$" above ljust
+
+.PE
+\stopMPcode
+
+$$ e(k) = r(k) - y(k)$$
+
+$$ u(k) = \sum_{m=-\infty}^\infty c(k-m) e(m) $$
+
+\stopSlide
+
+\startSlide
+
 \SlideTitle{Proportional Control}
 
 $ u_P(k) = K_P e(k) $
