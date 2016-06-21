@@ -621,10 +621,67 @@ subtracting instances all the time.
 
 \startSlide
 
+\vfill
 \SlideTitle{Overshoot}
+\startMPcode
+u := 600bp / 25;
 
-\externalfigure[overshoot.pdf][width=0.8\textwidth]
+pickup pencircle scaled 1bp;
 
+drawarrow (0,-5u) -- (20u, -5u);
+drawarrow (0,-5u) -- (0, 2u);
+
+pickup pencircle scaled 2bp;
+draw (0, -0.5u) -- (20u, -0.5u) dashed dashpattern(on 0.5u off 0.6u);
+
+
+pair peak;
+peak := (5u, 2u);
+
+pickup pencircle scaled 8bp;
+draw (0, -4.5u);
+draw (u, -3.7u);
+draw (2u, -2.5u);
+draw (3u, -1.7u);
+draw (4u, 0.5u);
+draw  peak;
+draw (6u, 1u);
+draw (7u, 0.3u);
+draw (8u, 0.1u);
+draw (9u, 0);
+draw (10u, 0);
+draw (11u, 0);
+draw (12u, 0);
+draw (13u, 0);
+draw (14u, 0);
+draw (15u, 0);
+draw (16u, 0);
+draw (17u, 0);
+draw (18u, 0);
+draw (19u, 0);
+
+pickup pencircle scaled 3bp;
+draw (0, -4.5u)
+     ..(u, -3.7u)
+     .. (2u, -2.5u)
+     .. (3u, -1.7u)
+     ..(4u, 0.5u)
+     .. peak
+     ..(6u, 1u)
+     ..(7u, 0.3u)
+     ..(8u, 0.1u)
+     ..(9u, 0)
+     ..(10u, 0)
+     ..(11u, 0)
+     ..(19u, 0);
+
+pickup pencircle scaled 1bp;
+drawdblarrow peak - dir(0)*2u -- (5u, -0.5u) - dir(0)*2u;
+draw peak-- peak - dir(0)*2.5u;
+draw (5u,-0.5u)-- (5u, -0.5u) - dir(0)*2.5u;
+label(btex $y$ etex, 1/2 * (peak - dir(0)*2.5u + (5u, -0.5u) - dir(0)*2.5u) );
+\stopMPcode
+\vfill
 \stopSlide
 
 \startSlide
