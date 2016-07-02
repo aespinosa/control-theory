@@ -1,5 +1,8 @@
 require 'json'
 
+require 'net/http'
+require 'uri'
+
 module ControlTheory
   class Sensor
     def initialize(pods=nil, heapster=nil)
@@ -21,6 +24,16 @@ module ControlTheory
           s + container['resources']['requests']['cpu'].to_i
         end
       end
+    end
+
+    def api_call
+      # Hard-wired selector from the replication_controller
+      endpoint = URI.parse 'http://127.0.0.1:8001/api/v1/namespaces/default/pods?labelSelector=name=app'
+
+      http = Net::HTTP.new endpoint.host, endpoint.port
+
+      response = http.request(Net::HTTP::Get.new endpoint.request_uri).body
+      JSON.parse(response)['items']
     end
   end
 
