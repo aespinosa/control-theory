@@ -24,10 +24,16 @@ class SensorTest < Minitest::Test
     assert_equal 0.3875, sensor.utilization
   end
 
-  def test_pods
+  def test_pods_cpu_request
     pods = Pods.new
 
     assert_equal 400, pods.cpu_request
+  end
+
+  def test_pod_names
+    pods = Pods.new
+
+    assert_equal %w(one two), pods.list_names
   end
 
   def test_heapster_stable
