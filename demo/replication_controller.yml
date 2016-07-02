@@ -18,6 +18,9 @@ spec:
     spec:
       containers:
       - name: app
+        resources:
+          requests:
+            cpu: 200m
         env:
           - name: RACK_ENV
             value: production
