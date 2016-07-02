@@ -1,4 +1,5 @@
 require_relative 'sensor'
+require_relative 'actuator'
 
 require 'minitest/autorun'
 
@@ -15,5 +16,11 @@ class IntegrationTest < Minitest::Test
     heapster = Heapster.new pods
 
     assert_equal 0, heapster.cpu_usage
+  end
+
+  def test_actuator
+    actuator = Actuator.new
+
+    assert_equal nil, actuator.scale(3)
   end
 end
