@@ -4,5 +4,7 @@ stdenv.mkDerivation {
   name = "demo";
   src = ./.;
 
-  buildInputs = [ terraform kubernetes google-cloud-sdk minikube];
+  buildInputs = [
+    terraform kubernetes google-cloud-sdk minikube
+  ];
 }
