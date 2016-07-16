@@ -1,7 +1,7 @@
 \useexternalfigure[engineyard-logo][https://www.engineyard.com/images/company/presskit/EY_Logotype_red.png]
 
 \startmode[presentation]
-  \setuppapersize[S6][S6]
+  \setuppapersize[SW][SW]
   \setuplayout[
     topspace=5pt,
     backspace=20pt,
@@ -65,14 +65,12 @@
 \vfill
 \SlideTitle{Autoscaling Containers\ldots with Math}
 \midaligned{ @AllanEspinosa }
-\midaligned{\externalfigure[engineyard-logo][width=0.3\textwidth]}
+\midaligned{\externalfigure[engineyard-logo][width=0.2\textwidth]}
 \vfill
 \stopSlide
 
 \startSlide
-\vfill
-\midaligned{ \externalfigure[https://images-na.ssl-images-amazon.com/images/I/51xkdqGcykL.jpg][width=0.55\textwidth] }
-\vfill
+\midaligned{ \externalfigure[https://images-na.ssl-images-amazon.com/images/I/51xkdqGcykL.jpg][width=0.45\textwidth] }
 \stopSlide
 
 \startSlide
@@ -98,7 +96,7 @@
 
 \SlideTitle{Your Distributed System}
 
-\tfxx
+\tfx
 \startMPcode
 
 .PS
@@ -106,22 +104,22 @@
 arrowht = 0.2
 arrowwid = 0.1
 linethick = 2
-linewid = 1.0
+linewid = 1.5
 
 "Goal" at Here rjust
 line right ->
 
-ellipse "OPS Person" wid 1.3 ht 0.7
+ellipse "OPS Person" wid 1.5 ht 0.9
 
 line right -> "Twiddle" above
 
-box "Server Farm" wid 1.3 ht 0.7
+box "Server Farm" wid 1.5 ht 0.9
 
-line right 2 "CPU Utilization" above ->
+line right 2 ->; "CPU Utilization" ljust
 
 line from last line.c down 1.5 then left ->
 
-box "Monitoring" wid 1.3 ht 0.7
+box "Monitoring" wid 1.5 ht 0.9
 
 line from Here to (1st ellipse.s.x, Here.y) then up to 1st ellipse.s -> "Page" ljust
 
@@ -154,7 +152,7 @@ several factors.
 
 \SlideTitle{Your Aircon}
 
-\tfxx
+\tfx
 \startMPcode
 
 .PS
@@ -162,21 +160,21 @@ several factors.
 arrowht = 0.2
 arrowwid = 0.1
 linethick = 2
-linewid = 1.0
+linewid = 1.5
 
 line right "Set Temperature" above rjust ->
 
-ellipse "Thermostat" wid 1.3 ht 0.7
+ellipse "Thermostat" wid 1.5 ht 0.9
 
 line right -> "Valve" above
 
-box "Coolant" wid 1.3 ht 0.7
+box "Coolant" wid 1.5 ht 0.9
 
-line right 2 "Actual Temperature" above ->
+line right 2 "Actual Temperature" above ljust ->
 
 line from last line.c down 1.5 then left ->
 
-box "Sensor" wid 1.3 ht 0.7
+box "Sensor" wid 1.5 ht 0.9
 
 line from Here to (1st ellipse.s.x, Here.y) then up to 1st ellipse.s ->
 
@@ -245,7 +243,7 @@ did.
 
 \SlideTitle{Autoscaling}
 
-{\tfxx
+{\tfx
 \startMPcode
 .PS
 
@@ -255,19 +253,19 @@ linethick = 2
 linewid = 1.0
 
 "Target" at Here rjust
-line right 0.5 ->
+line right 1.0 ->
 
-ellipse "HPA" wid 1.3 ht 0.7
+ellipse "HPA" wid 1.5 ht 0.9
 
-line right 2.0 -> "Number of Pods" above
+line right 2.5 -> "Number of Pods" above
 
-box "RC" wid 1.3 ht 0.7
+box "RC" wid 1.5 ht 0.9
 
-line right 2 "Utilization" above ->
+line right 2 ->; "Utilization" ljust
 
 line from last line.c down 1.5 then left ->
 
-box "Heapster" wid 1.3 ht 0.7
+box "Heapster" wid 1.5 ht 0.9
 
 line from Here to (1st ellipse.s.x, Here.y) then up to 1st ellipse.s -> "Utilization" ljust
 
@@ -334,20 +332,20 @@ edition, 1901. }
 
 \vfill
 
-\tfxx
+\tfx
 \startMPcode
 .PS
 arrowht = 0.2
 arrowwid = 0.1
 linethick = 2
-linewid = 1.0
+linewid = 2.0
 
-boxwid = 1.4
-boxht = 1.0
+boxwid = 2
+boxht = 1.5
 
 
 "$r(k)$" at Here rjust
-line right 0.5 -> "$+$" above ljust
+line right -> "$+$" above ljust
 
 circle rad 0.18
 
@@ -359,7 +357,7 @@ line right -> "$u(k)$" above
 
 box "$G(z)$"
 
-line right ->
+line right 3.0 ->
 
 "$y(k)$" at Here ljust
 
@@ -368,7 +366,7 @@ line down boxht  then left (Here.x - 1st circle.s.x)
 
 line -> to 1st circle.s "$-$" above ljust
 
-line from last box.n up  <-
+line from last box.n up 1.0 <-
 "$d(k)$" above
 
 
@@ -467,7 +465,7 @@ $$ y(k + 1) = a y(k) + b u(k) $$
 \vfill
 \startMPcode
 
-u := 600bp / 25;
+u := 800bp / 25;
 
 pickup pencircle scaled 1bp;
 
@@ -499,7 +497,7 @@ draw ( (0, u)
 \vfill
 \startMPcode
 
-u := 600bp / 25;
+u := 800bp / 25;
 
 pickup pencircle scaled 1bp;
 
@@ -531,7 +529,7 @@ draw ( (0, u)
 \vfill
 \startMPcode
 
-u := 600bp / 25;
+u := 800bp / 25;
 
 pickup pencircle scaled 1bp;
 
@@ -562,7 +560,7 @@ draw ( (0, 3.5u)
 \vfill
 \startMPcode
 
-u := 600bp / 25;
+u := 800bp / 25;
 
 pickup pencircle scaled 1bp;
 
@@ -592,7 +590,7 @@ draw ( (0, 3.5u)
 \vfill
 \startuseMPgraphic{stable-error}
 
-u := 600bp / 25;
+u := 800bp / 25;
 
 pickup pencircle scaled 1bp;
 
@@ -642,54 +640,54 @@ subtracting instances all the time.
 \startSlide
 
 \SlideTitle{Settling time}
-%\externalfigure[settling.pdf][width=0.5\textwidth]
-
 \startMPcode
-u := 600bp / 25;
+u := 800bp / 25;
+v := 700bp / 25;
 
 pickup pencircle scaled 1bp;
 
-drawarrow (0,-3.3u) -- (20u, -3.3u);
-drawarrow (0,-3.3u) -- (0, 2u);
+drawarrow (0,-3.3v) -- (20u, -3.3v);
+drawarrow (0,-3.3v) -- (0, 2v);
 
 pickup pencircle scaled 2bp;
-draw (0, 0.5u) -- (20u, 0.5u) dashed dashpattern(on 0.5u off 0.6u);
+draw (0, 0.5v) -- (20u, 0.5v) dashed dashpattern(on 0.5u off 0.6u);
 
 for k=0 upto 19:
   pickup pencircle scaled 8bp;
   y := (0.6)**(k);
-  draw (k*u, -3.0y*u);
+  draw (k*u, -3.0y*v);
 endfor
 
 pickup pencircle scaled 3bp;
-draw ( (0, -3.0u)
+draw ( (0, -3.0v)
   for k=0 upto 19:
-    -- (k*u, -3.0*((0.6)**k)*u)
+    -- (k*u, -3.0*((0.6)**k)*v)
   endfor );
 \stopMPcode
 \vfill
 
 \startMPcode
-u := 600bp / 25;
+u := 800bp / 25;
+v := 700bp / 25;
 
 pickup pencircle scaled 1bp;
 
-drawarrow (0,-3.3u) -- (20u, -3.3u);
-drawarrow (0,-3.3u) -- (0, 2u);
+drawarrow (0,-3.3v) -- (20u, -3.3v);
+drawarrow (0,-3.3v) -- (0, 2v);
 
 pickup pencircle scaled 2bp;
-draw (0, 0.5u) -- (20u, 0.5u) dashed dashpattern(on 0.5u off 0.6u);
+draw (0, 0.5v) -- (20u, 0.5v) dashed dashpattern(on 0.5u off 0.6u);
 
 for k=0 upto 19:
   pickup pencircle scaled 8bp;
   y := (0.8)**(k);
-  draw (k*u, -3.0y*u);
+  draw (k*u, -3.0y*v);
 endfor
 
 pickup pencircle scaled 3bp;
-draw ( (0, -3.0u)
+draw ( (0, -3.0v)
   for k=0 upto 19:
-    -- (k*u, -3.0*((0.80)**k)*u)
+    -- (k*u, -3.0*((0.80)**k)*v)
   endfor );
 \stopMPcode
 
@@ -701,7 +699,7 @@ draw ( (0, -3.0u)
 \vfill
 \SlideTitle{Overshoot}
 \startMPcode
-u := 600bp / 25;
+u := 800bp / 25;
 
 pickup pencircle scaled 1bp;
 
@@ -771,14 +769,14 @@ label(btex $y$ etex, 1/2 * (peak - dir(0)*2.5u + (5u, -0.5u) - dir(0)*2.5u) );
 arrowht = 0.2
 arrowwid = 0.1
 linethick = 2
-linewid = 1.0
+linewid = 2.0
 
-boxwid = 1.4
-boxht = 1.0
+boxwid = 2.4
+boxht = 1.5
 
 
 "$r(k)$" at Here rjust
-line right 0.5 -> "$+$" above ljust
+line right 1.5 -> "$+$" above ljust
 
 circle rad 0.18
 
@@ -790,7 +788,7 @@ line right -> "$u(k)$" above
 
 box "$G(z)$"
 
-line right ->
+line right 3 ->
 
 "$y(k)$" at Here ljust
 
@@ -816,7 +814,7 @@ $ u_P(k) = K_P e(k) $
 
 %\externalfigure[proportional.pdf][width=0.8\textwidth]
 \startMPcode
-u := 600bp / 25;
+u := 800bp / 25;
 v := 600bp / 15;
 
 pickup pencircle scaled 1bp;
