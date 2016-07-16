@@ -75,25 +75,6 @@
 
 \startSlide
 
-\vfill
-
-\dontleavehmode
-\externalfigure[engineyard-logo][width=0.4\textwidth]
-\hfill
-\externalfigure[logo.svg][width=0.4\textwidth]
-
-\vfill
-
-\stopSlide
-
-\startSlide
-\vfill
-\externalfigure[trial.pdf][width=\textwidth]
-\vfill
-\stopSlide
-
-\startSlide
-
 \SlideTitle{Your Distributed System}
 
 \tfx
@@ -195,48 +176,6 @@ You may have to wake up if you didn't set the thermostat properly. But that's a
 different problem for now.
 
 { \em detect } changes in the environment and { \em respond } to them.
-\stopmode
-
-\startSlide
-\vfill
-\SlideTitle{Support questions}
-\startitemize
-\item How many unicorn workers should I have?
-\item Why is monit killing my sidekiq workers?
-\stopitemize
-\vfill
-\stopSlide
-
-\startNote
-
-Applies to any parameter you set in your system. From nginx workers, maxClients,
-etc.
-
-I get these questions every so often
-\stopmode
-
-\startSlide
-
-\midaligned{
-\externalfigure[http://akamaicovers.oreilly.com/images/9780596518585/lrg.jpg][width=0.54\textwidth]
-}
-
-\stopSlide
-
-\startNote
-I want to slap them with this book!
-
-Sometimes people tend to automate things they don't understand that produces
-surprising results.  Slow response to change in workload, wild oscillations when 
-a configuration is changed.
-
-Typical support requests to just restart.  The book is great in that it gives
-practical guidelines to conduct experiments to find out the effect of your
-configuration setting in a safe manner, automated or not.
-
-And to learn the effectiveness of our automation or any improvement in our
-processes, we basically look at the feedback of the output/ results of what we
-did. 
 \stopmode
 
 \startSlide
@@ -955,28 +894,14 @@ effectiveness - stability, steady state error, settling time, overshoots
 \stopSlide
 
 \startSlide
-\vfill
-\midaligned{ \externalfigure[raffle.pdf][width=0.7\textwidth] }
-\vfill
-\stopSlide
-
-\setupfooter[state=stop]
-\startSlide
 
 \vfill
 \SlideTitle{Thank You!}
 
 \midaligned{@AllanEspinosa}
 
-\midaligned{
-\externalfigure[engineyard-logo][width=0.4\textwidth]
-}
-\midaligned{
-\useURL[eysurvey]{https://ey.io/EYprize}
-\from[eysurvey]
-}
 \vfill
-{\tfxx
+{\tfx
 \useURL[lab-notes][https://github.com/aespinosa/control-theory]
 \from[lab-notes]
 }
