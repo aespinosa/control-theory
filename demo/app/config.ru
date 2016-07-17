@@ -6,4 +6,6 @@ class App
   end
 end
 
+use Rack::CommonLogger
+
 run App.new
