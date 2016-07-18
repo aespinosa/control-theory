@@ -5,7 +5,7 @@ kind: ReplicationController
 metadata:
   name: app
 spec:
-  replicas: 2
+  replicas: 70
   selector:
     name: app
 
