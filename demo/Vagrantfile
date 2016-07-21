@@ -1,0 +1,3 @@
+Vagrant.configure(2) do |config|
+  config.vm.box = "bento/debian-8.4"
+end
