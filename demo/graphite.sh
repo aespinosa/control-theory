@@ -1,5 +1,6 @@
 #!/bin/sh
 
+export DEBIAN_FRONTEND=noninteractive
 # Carbon
 apt-get update
 apt-get --no-install-recommends install -y graphite-carbon

@@ -1,3 +1,6 @@
+# vi: set ft=ruby
 Vagrant.configure(2) do |config|
-  config.vm.box = "bento/debian-8.4"
+  config.vm.box = 'bento/debian-8.5'
+
+  config.vm.provision 'shell', path: 'graphite.sh'
 end
