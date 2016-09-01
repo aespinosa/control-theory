@@ -20,7 +20,7 @@ spec:
       - name: app
         resources:
           requests:
-            cpu: 200m
+            cpu: 1000m
         env:
           - name: RACK_ENV
             value: production
