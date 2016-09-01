@@ -3,8 +3,6 @@ kind: ReplicationController
 metadata:
   name: vegeta
 spec:
-  selector:
-    name: vegeta
   replicas: 20
   template:
     metadata:
