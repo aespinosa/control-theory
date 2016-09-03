@@ -3,6 +3,7 @@ library(reshape)
 
 raw<-read.csv("data-model.raw", header=FALSE, sep = " ")
 names(raw)<-c("var", "value", "time")
+data<-cast(raw, time ~ var)
 names(data)<-c("time", "y", "u")
 N<-nrow(data)-1
 mean_u<-mean(data[1:N,]$u)
@@ -11,4 +12,4 @@ rms_data<-data.frame(time = data[1:N,]$time, uk = data[1:N,]$u, yk = data[1:N,]$
 
 model<-lm(yk1 ~ yk + uk, rms_data)
 
-plot(rms_data$uk + mean_u, rms_data$yk1 + mean_y, xlab = "Number of Replicas", ylab="CPU Utilization")
+plot(rms_data$yk1 + mean_y, rms_data$uk + mean_u, xlab = "Number of Replicas", ylab="CPU Utilization")
