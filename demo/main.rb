@@ -5,7 +5,7 @@ sensor = ControlTheory::Sensor.new
 actuator = ControlTheory::Actuator.new
 
 class Controller
-  def initialize(target = 0.73603, k_p=-97.736, k_i=0.0,operating_point = 69.362)
+  def initialize(target, k_p, k_i, operating_point)
     @k_p = k_p
     @k_i = k_i
     @target = target.to_f
@@ -22,8 +22,7 @@ class Controller
   end
 end
 
-#controller = Controller.new 0.7, -96.0
-controller = Controller.new 0.7, -96.0, -0.5
+controller = Controller.new 500.0, -5.0, 0.0, 70.0
 
 require 'socket'
 
