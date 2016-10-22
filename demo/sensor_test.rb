@@ -1,5 +1,6 @@
 require_relative 'sensor'
 
+gem 'minitest'
 require 'minitest/autorun'
 
 class ControlTheory::Pods
@@ -13,6 +14,15 @@ class ControlTheory::Heapster
   private
   def api_call
     JSON.parse(File.read 'cpu.json')['items']
+  end
+end
+
+class PodsTest < Minitest::Test
+  include ControlTheory
+
+  def test_list_only_running_pods
+    pods = Pods.new
+    assert_equal 2, pods.list_names.count
   end
 end
 

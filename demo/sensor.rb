@@ -29,7 +29,9 @@ module ControlTheory
     end
 
     def list_names
-      pods = api_call
+      pods = api_call.select do |pod|
+        pod['status']['phase'] == 'Running'
+      end
       pods.map do |pod|
         pod['metadata']['name']
       end
