@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: vegeta
 spec:
-  replicas: 20
+  replicas: 1
   template:
     metadata:
       labels:
@@ -11,15 +11,14 @@ spec:
     spec:
       containers:
       - name: vegeta
-        image: gcr.io/google_containers/loader:0.5
+        image: aespinosa/vegeta:latest
         resources:
           requests:
-            cpu: 100m
+            cpu: 500m
         command:
-          - /loader
-          - -host=app.default
+          - /vegeta
+          - attack
+          - -output=/output.bin
+          - -targets=/targets.lst
           - -rate=1000
-          - -address=:8080
-          - -workers=10
-          - -duration=1s
       dnsPolicy: ClusterFirst
