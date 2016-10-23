@@ -60,6 +60,9 @@
 
 \starttext
 
+\defineoverlay[titlePage][{\externalfigure[kubecon-template.pdf][page=1,width=\pagewidth]}]
+\setupbackgrounds[page][background=titlePage]
+
 \startSlide
 \setupfooter[state=stop]
 \vfill
@@ -71,6 +74,9 @@
 }
 \vfill
 \stopSlide
+
+\defineoverlay[template][{\externalfigure[kubecon-template.pdf][page=2,width=\pagewidth]}]
+\setupbackgrounds[page][background=template]
 
 \startSlide
 \midaligned{ \externalfigure[https://images-na.ssl-images-amazon.com/images/I/51xkdqGcykL.jpg][width=0.45\textwidth] }
