@@ -13,6 +13,8 @@ spec:
         name: app
 
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: application
       containers:
       - name: app
         resources:

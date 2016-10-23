@@ -9,6 +9,8 @@ spec:
       labels:
         run: vegeta
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: loader
       containers:
       - name: vegeta
         image: aespinosa/vegeta:latest
