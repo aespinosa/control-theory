@@ -7,7 +7,7 @@
     backspace=20pt,
     width=middle,
     height=middle,
-    header=130pt,
+    header=140pt,
     footer=14pt,
     footerdistance=3pt,
     bottomspace=1pt
@@ -22,7 +22,6 @@
 
   \define[1]\SlideTitle{
     \midaligned{ \tfb #1 }
-    \blank[line]
   }
 
   % Slide macros
@@ -32,7 +31,6 @@
   \startsetups slide:start
     \start
     \switchtobodyfont[24pt]
-    \dontleavehmode
   \stopsetups
 
   \startsetups slide:stop
@@ -54,6 +52,7 @@
 \stopmode
 
 \def\startNote{\startmode[manuscript]}
+
 
 \starttext
 
