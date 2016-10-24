@@ -205,7 +205,6 @@ different problem for now.
 \startSlide
 
 \SlideTitle{Autoscaling}
-
 {\tfx
 \startMPcode
 .PS
@@ -218,17 +217,17 @@ linewid = 1.0
 "Target" at Here rjust
 line right 1.0 ->
 
-ellipse "HPA" wid 1.5 ht 0.9
+ellipse "HPA" wid 1.5 ht 0.7
 
 line right 2.5 -> "Number of Pods" above
 
-box "RC" wid 1.5 ht 0.9
+box "RC" wid 1.5 ht 0.7
 
 line right 2 ->; "Utilization" ljust
 
-line from last line.c down 1.5 then left ->
+line from last line.c down 1.2 then left ->
 
-box "Heapster" wid 1.5 ht 0.9
+box "Heapster" wid 1.5 ht 0.7
 
 line from Here to (1st ellipse.s.x, Here.y) then up to 1st ellipse.s -> "Utilization" ljust
 
