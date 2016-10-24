@@ -76,8 +76,24 @@
   \setupbackgrounds[page][background=template]
 \stopmode
 
+\defineparagraphs[mypar][n=2,before=\blank]
 \startSlide
-\midaligned{ \externalfigure[https://images-na.ssl-images-amazon.com/images/I/51xkdqGcykL.jpg][width=0.45\textwidth] }
+
+\startmypar
+\externalfigure[https://images-na.ssl-images-amazon.com/images/I/51xkdqGcykL.jpg][height=\textheight]
+\mypar
+
+\SlideTitle{@AllanEspinosa}
+
+{\tfx
+\useURL[mybook][https://amzn.com/1785886800]
+\from[mybook]
+}
+
+\externalfigure[book-qrcode.png]
+
+\stopmypar
+
 \stopSlide
 
 \startSlide
