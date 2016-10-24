@@ -1,5 +1,3 @@
-\useexternalfigure[engineyard-logo][https://www.engineyard.com/images/company/presskit/EY_Logotype_red.png]
-
 \startmode[presentation]
   \setuppapersize[SW][SW]
   \setuplayout[
@@ -39,6 +37,7 @@
   \stopsetups
 
   \setupfootertexts[][@AllanEspinosa]
+  \defineparagraphs[TwoColumns][n=2,before=\blank]
 \stopmode
 
 \startmode[manuscript]
@@ -77,12 +76,11 @@
   \setupbackgrounds[page][background=template]
 \stopmode
 
-\defineparagraphs[mypar][n=2,before=\blank]
 \startSlide
 
-\startmypar
+\startTwoColumns
 \externalfigure[https://images-na.ssl-images-amazon.com/images/I/51xkdqGcykL.jpg][height=\textheight]
-\mypar
+\TwoColumns
 
 \SlideTitle{@AllanEspinosa}
 
@@ -93,12 +91,11 @@
 
 \externalfigure[book-qrcode.png]
 
-\stopmypar
+\stopTwoColumns
 
 \stopSlide
 
 \startSlide
-
 \SlideTitle{Your Distributed System}
 
 \tfx
@@ -266,12 +263,18 @@ line from 1st box.n up <-
 
 \startSlide
 
-\midaligned{
-\externalfigure[https://upload.wikimedia.org/wikipedia/commons/1/1e/Centrifugal_governor.png][height=0.85\textheight]
-}
+\startTwoColumns
+\externalfigure[https://upload.wikimedia.org/wikipedia/commons/1/1e/Centrifugal_governor.png][height=\textheight]
 
-{\tfxx R. Routledge, {\em Discoveries \& Inventions of the Nineteenth Century}, 13th
-edition, 1901. }
+\TwoColumns
+
+\SlideTitle{Centrifugal Governor}
+
+
+R. Routledge, {\em Discoveries \& Inventions of the Nineteenth Century}, 13th
+edition, 1901.
+
+\stopTwoColumns
 
 \stopSlide
 
