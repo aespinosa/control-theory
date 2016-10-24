@@ -428,29 +428,29 @@ $$ y(k + 1) = a y(k) + b u(k) $$
 
 \SlideTitle{Stability}
 
-\vfill
 \startMPcode
 
 u := 800bp / 25;
+v := 550bp / 25;
 
 pickup pencircle scaled 1bp;
 
-drawarrow (0,-5u) -- (20u, -5u);
-drawarrow (0,-5u) -- (0, 5u);
+drawarrow (0,-5v) -- (20u, -5v);
+drawarrow (0,-5v) -- (0, 5v);
 
 pickup pencircle scaled 2bp;
-draw (0, 0u) -- (20u, 0u) dashed dashpattern(on 0.5u off 0.6u);
+draw (0, 0v) -- (20u, 0v) dashed dashpattern(on 0.5u off 0.6u);
 
 for k=0 upto 18:
   pickup pencircle scaled 8bp;
   y := (-1.08)**(k);
-  draw (k*u, y*u);
+  draw (k*u, y*v);
 endfor
 
 pickup pencircle scaled 3bp;
-draw ( (0, u)
+draw ( (0, v)
   for k=0 upto 18:
-    -- (k*u, ((-1.08)**k)*u)
+    -- (k*u, ((-1.08)**k)*v)
   endfor );
 
 \stopMPcode
@@ -464,25 +464,26 @@ draw ( (0, u)
 \startMPcode
 
 u := 800bp / 25;
+v := 600bp / 25;
 
 pickup pencircle scaled 1bp;
 
-drawarrow (0,-u) -- (20u, -u);
-drawarrow (0,-u) -- (0, 10u);
+drawarrow (0,-v) -- (20u, -v);
+drawarrow (0,-v) -- (0, 10v);
 
 pickup pencircle scaled 2bp;
-draw (0, 3u) -- (20u, 3u) dashed dashpattern(on 0.5u off 0.6u);
+draw (0, 3v) -- (20u, 3v) dashed dashpattern(on 0.5u off 0.6u);
 
 for k=0 upto 18:
   pickup pencircle scaled 8bp;
   y := (1.12)**(k);
-  draw (k*u, y*u);
+  draw (k*u, y*v);
 endfor
 
 pickup pencircle scaled 3bp;
 draw ( (0, u)
   for k=0 upto 18:
-    -- (k*u, ((1.12)**k)*u)
+    -- (k*u, ((1.12)**k)*v)
   endfor );
 
 \stopMPcode
@@ -496,25 +497,26 @@ draw ( (0, u)
 \startMPcode
 
 u := 800bp / 25;
+v := 600bp / 25;
 
 pickup pencircle scaled 1bp;
 
-drawarrow (0,-5u) -- (20u, -5u);
-drawarrow (0,-5u) -- (0, 5u);
+drawarrow (0,-5v) -- (20u, -5v);
+drawarrow (0,-5v) -- (0, 5v);
 
 pickup pencircle scaled 2bp;
-draw (0, 0u) -- (20u, 0u) dashed dashpattern(on 0.5u off 0.6u);
+draw (0, 0v) -- (20u, 0v) dashed dashpattern(on 0.5u off 0.6u);
 
 for k=0 upto 19:
   pickup pencircle scaled 8bp;
   y := (-1.0)**(k);
-  draw (k*u, 3.5y*u);
+  draw (k*u, 3.5y*v);
 endfor
 
 pickup pencircle scaled 3bp;
-draw ( (0, 3.5u)
+draw ( (0, 3.5v)
   for k=0 upto 19:
-    -- (k*u, 3.5*((-1.0)**k)*u)
+    -- (k*u, 3.5*((-1.0)**k)*v)
   endfor );
 
 \stopMPcode
@@ -527,25 +529,26 @@ draw ( (0, 3.5u)
 \startMPcode
 
 u := 800bp / 25;
+v := 600bp / 25;
 
 pickup pencircle scaled 1bp;
 
-drawarrow (0,-5u) -- (20u, -5u);
-drawarrow (0,-5u) -- (0, 5u);
+drawarrow (0,-5v) -- (20u, -5v);
+drawarrow (0,-5v) -- (0, 5v);
 
 pickup pencircle scaled 2bp;
-draw (0, 0u) -- (20u, 0u) dashed dashpattern(on 0.5u off 0.6u);
+draw (0, 0v) -- (20u, 0v) dashed dashpattern(on 0.5u off 0.6u);
 
 for k=0 upto 19:
   pickup pencircle scaled 8bp;
   y := (-0.9)**(k);
-  draw (k*u, 3.5y*u);
+  draw (k*u, 3.5y*v);
 endfor
 
 pickup pencircle scaled 3bp;
-draw ( (0, 3.5u)
+draw ( (0, 3.5v)
   for k=0 upto 19:
-    -- (k*u, 3.5*((-0.9)**k)*u)
+    -- (k*u, 3.5*((-0.9)**k)*v)
   endfor );
 
 \stopMPcode
