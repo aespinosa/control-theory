@@ -34,4 +34,4 @@ handleRootR = do
   return $ show $ randomNumbers seed
 
 main :: IO ()
-main = warp 3000 App
+main = warp 8000 App
