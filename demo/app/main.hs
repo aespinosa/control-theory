@@ -2,7 +2,7 @@
 {-# LANGUAGE QuasiQuotes           #-}
 {-# LANGUAGE TemplateHaskell       #-}
 {-# LANGUAGE TypeFamilies          #-}
-import Yesod (warp, Yesod, yesodRunner,
+import Yesod (warp, Yesod, yesodRunner, makeSessionBackend,
               RenderRoute, Route, renderRoute,
               YesodDispatch, yesodDispatch,
               HandlerT)
@@ -11,7 +11,8 @@ import Control.Monad.IO.Class (liftIO)
 
 
 data App = App
-instance Yesod App
+instance Yesod App where
+  makeSessionBackend _ = return Nothing
 
 
 instance RenderRoute App where
