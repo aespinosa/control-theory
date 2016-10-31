@@ -6,7 +6,7 @@ import Yesod (warp, Yesod, yesodRunner,
               RenderRoute, Route, renderRoute,
               YesodDispatch, yesodDispatch,
               HandlerT)
-import System.Random (randomRs, getStdGen, StdGen)
+import System.Random (randomRs, newStdGen, StdGen)
 import Control.Monad.IO.Class (liftIO)
 
 
@@ -30,7 +30,7 @@ type Handler = HandlerT App IO
 
 handleRootR :: Handler String
 handleRootR = do
-  seed <- liftIO $ getStdGen
+  seed <- liftIO $ newStdGen
   return $ show $ randomNumbers seed
 
 main :: IO ()

@@ -1,5 +1,5 @@
 all:
-	ghc app.hs
+	ghc main.hs
 install:
 	install -d ${out}/bin
-	install -t ${out}/bin app
+	install -t ${out}/bin main
