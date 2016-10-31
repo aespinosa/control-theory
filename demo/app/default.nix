@@ -4,13 +4,13 @@
 # nix-build  --argstr system x86_64-linux
 #
 # remotes.conf
-# vagrant@<ip> x86_64-linux $HOME/.vagrant.sh/insecure_private_key 1
+# vagrant@<ip> x86_64-linux $HOME/.vagrant.sh/insecure_private_key 1 1 kvm
 { system ? builtins.currentSystem }:
 with import <nixpkgs> {
-  system = system;
+  inherit system;
 };
 
-stdenv.mkDerivation {
+let app = stdenv.mkDerivation {
   name = "cpu-app";
   enableSharedExecutables = false;
   buildInputs = [
@@ -20,4 +20,22 @@ stdenv.mkDerivation {
   src = ./.;
 
   phases = [ "unpackPhase" "buildPhase" "installPhase" "fixupPhase" ];
+}; in
+
+dockerTools.buildImage {
+  name = "stress";
+
+  contents = app;
+
+  runAsRoot = ''
+    #!${stdenv.shell}
+    ${dockerTools.shadowSetup}
+
+    useradd app
+  '';
+
+  config = {
+    User = "app";
+    Entrypoint = ["${app}/bin/main"];
+  };
 }
