@@ -5,7 +5,7 @@ kind: ReplicationController
 metadata:
   name: app
 spec:
-  replicas: 70
+  replicas: 1
   template:
     metadata:
       name: app
@@ -20,9 +20,4 @@ spec:
         resources:
           requests:
             cpu: 1000m
-        env:
-          - name: RACK_ENV
-            value: production
         image: aespinosa/stress
-        ports:
-          - containerPort: 9292
