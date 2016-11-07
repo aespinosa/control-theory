@@ -1,0 +1,26 @@
+[
+  {
+    "target": [
+      "alias(model.pods.cpu_utilization,\"Pod CPU Utilization\")",
+      "alias(secondYAxis(model.replication_controller.replicas),\"Replica Count\")"
+    ],
+    "title": "Modelling",
+    "height": "550",
+    "width": "1273",
+    "fontSize": "16",
+    "_salt": "1478541843.16",
+    "lineWidth": "5"
+  },
+  {
+    "target": [
+      "alias(demo.pods.cpu_utilization,\"Pod CPU Utilization\")",
+      "alias(secondYAxis(demo.replication_controller.replicas),\"Replica Count\")"
+    ],
+    "title": "Controller",
+    "height": "550",
+    "width": "1273",
+    "fontSize": "16",
+    "_salt": "1478541843.16",
+    "lineWidth": "5"
+  }
+]
