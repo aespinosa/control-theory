@@ -22,7 +22,8 @@ class Controller
   end
 end
 
-controller = Controller.new 500.0, -5.0, 0.0, 70.0
+# u[k] = -0.1 * e[k]
+controller = Controller.new 260.0, -0.1, 0.0, 70.0
 
 require 'socket'
 
