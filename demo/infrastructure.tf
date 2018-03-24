@@ -1,6 +1,6 @@
 provider "google" {
   credentials = "${file("key.json")}"
-  project = "docker-1282"
+  project = "control-theory"
   region = "us-central1"
 }
 
