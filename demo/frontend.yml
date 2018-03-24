@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-frontend
+spec:
+  type: ExternalName
+  externalName: control-theory.espinosa.io
