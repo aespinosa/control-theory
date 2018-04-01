@@ -24,8 +24,25 @@ let
           chmod 755 $out/bin/bosh
     '';
   };
+  cf = stdenv.mkDerivation {
+    name = "cf-6.35.2";
+    src = fetchurl {
+      url = "https://s3-us-west-1.amazonaws.com/cf-cli-releases/releases/v6.35.2/cf-cli_6.35.2_osx.tgz";
+      sha256 = "0jvxmvvh61fd5wd4k1y32nlfgxrwwn0g2bar52i4g1gap80xlmrf";
+    };
+    buildCommand = ''
+      mkdir -p $out/bin
+      tar -xvzf $src
+      cp cf $out/bin/cf
+      chmod 755 $out/bin/cf
+    '';
+  };
 in
 stdenv.mkDerivation {
   name = "cfsummit-2018";
-  buildInputs = [ bosh bbl ];
+  buildInputs = [ bosh bbl terraform ruby cf ];
+  shellHook = ''
+     alias bbl='bbl -s bbl_state'
+     export BBL_GCP_SERVICE_ACCOUNT_KEY=$(pwd)/key.json
+  '';
 }
