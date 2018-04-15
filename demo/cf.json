@@ -1,0 +1,46 @@
+{
+   "0": {
+      "state": "RUNNING",
+      "isolation_segment": null,
+      "stats": {
+         "name": "demo",
+         "uris": [
+            "demo.cf.espinosa.io"
+         ],
+         "host": "10.0.16.17",
+         "port": 61000,
+         "uptime": 1084,
+         "mem_quota": 268435456,
+         "disk_quota": 1073741824,
+         "fds_quota": 16384,
+         "usage": {
+            "time": "2018-04-14T18:22:20+00:00",
+            "cpu": 0.5,
+            "mem": 56086528,
+            "disk": 66625536
+         }
+      }
+   },
+   "1": {
+      "state": "RUNNING",
+      "isolation_segment": null,
+      "stats": {
+         "name": "demo",
+         "uris": [
+            "demo.cf.espinosa.io"
+         ],
+         "host": "10.0.32.8",
+         "port": 61000,
+         "uptime": 46,
+         "mem_quota": 268435456,
+         "disk_quota": 1073741824,
+         "fds_quota": 16384,
+         "usage": {
+            "time": "2018-04-14T18:22:20+00:00",
+            "cpu": 0.3,
+            "mem": 46780416,
+            "disk": 66625536
+         }
+      }
+   }
+}
