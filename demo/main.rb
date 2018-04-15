@@ -23,7 +23,7 @@ class Controller
 end
 
 # u[k] = -0.1 * e[k]
-controller = Controller.new 260.0, -0.1, 0.0, 70.0
+controller = Controller.new 0.30, -100.0, 0.0, 40
 
 require 'socket'
 
@@ -34,11 +34,8 @@ while true do
 
   actuator.scale instances
   now = Time.now.to_i
-  TCPSocket.open 'graphite.dev', '2003' do |graphite|
-    graphite.puts "demo.replication_controller.replicas #{instances} #{now}"
-    puts "demo.replication_controller.replicas #{instances} #{now}"
-    graphite.puts "demo.pods.cpu_utilization #{output} #{now}"
-    puts "demo.pods.cpu_utilization #{output} #{now}"
-  end
+  puts "instances #{instances} #{now}"
+  puts "cpu_usage #{output} #{now}"
+  # Sampling interval
   sleep 5
 end

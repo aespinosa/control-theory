@@ -1,86 +1,36 @@
 require 'json'
 
-require 'net/http'
-require 'uri'
-
 module ControlTheory
   class Sensor
-    def initialize(pods=nil, heapster=nil)
-      @pods = pods || Pods.new
-      @heapster = heapster || Heapster.new(@pods)
+    def initialize(app=nil, cf=CloudFoundry.new)
+      @app = app
+      @cf = cf
     end
 
     def utilization
-      request = @pods.cpu_request.to_f
-      @heapster.cpu_usage.to_f / request
-    end
-  end
-
-  class Pods
-    def cpu_request
-      @api_call = nil
-      pods = api_call
-
-      pods.inject(0) do |sum, pod| 
-        pod['spec']['containers'].inject(sum) do |s, container|
-          s + container['resources']['requests']['cpu'].to_i
+      data = @cf.api_call
+      instances = 0.0
+      total_usage = 0.0
+      total_usage = data.reduce(0) do |sum, details|
+        if details[1]['state'] == 'RUNNING'
+          instances += 1.0
+          sum += details[1]['stats']['usage']['cpu']
         end
+        sum
       end
-    end
-
-    def list_names
-      pods = api_call.select do |pod|
-        pod['status']['phase'] == 'Running'
-      end
-      pods.map do |pod|
-        pod['metadata']['name']
-      end
-    end
-
-    def api_call
-      return @api_call if @api_call
-      # Hard-wired selector from the replication_controller
-      endpoint = URI.parse 'http://127.0.0.1:8001/api/v1'\
-                           '/namespaces/default/pods?labelSelector=name=app'
-
-      http = Net::HTTP.new endpoint.host, endpoint.port
-
-      response = http.request(Net::HTTP::Get.new endpoint.request_uri).body
-      JSON.parse(response)['items']
+      puts total_usage
+      total_usage / instances
     end
   end
 
-  class Heapster
-    def initialize(pods=nil)
-      @pods = pods
-    end
-
-    def cpu_usage
-      pods = api_call
-      pods.inject(0) do |sum, pod|
-        timestamp = pod['latestTimestamp']
-        pod['metrics'].inject(sum) do |s, metric|
-          if metric['timestamp'] == timestamp
-            s + metric['value']
-          else
-            s
-          end
-        end 
-      end
-    end
-
+  class CloudFoundry
     def api_call
-      pods = @pods.list_names.join(',')
+      JSON.parse cf 'curl /v2/apps/f5585fea-3257-40c5-a43b-862d4e8ad878/stats'
+    end
 
-      endpoint = URI.parse 'http://127.0.0.1:8001/api/v1/proxy'\
-                           '/namespaces/kube-system/services/heapster'\
-                           '/api/v1/model/namespaces/default'\
-                           "/pod-list/#{pods}/metrics/cpu-usage"
-
-      http = Net::HTTP.new endpoint.host, endpoint.port
-
-      response = http.request(Net::HTTP::Get.new endpoint.request_uri).body
-      JSON.parse(response)['items']
+    private
+    def cf(args)
+      `/nix/store/y43lfg6nrh9fy2ndxr7gsa08fwrl61jf-cf-6.35.2/bin/cf #{args}`
     end
   end
 end
