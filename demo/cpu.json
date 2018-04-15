@@ -1,0 +1,20 @@
+{
+  "name": "",
+  "description": "CPU Usage of an Application Instance",
+  "displayName": "CPU Usage",
+  "type": "custom.googleapis.com/cloudfoundry/cpu",
+  "metricKind": "GAUGE",
+  "valueType": "DOUBLE",
+  "labels": [
+    {
+      "key": "application",
+      "valueType": "STRING",
+      "description": "Name of the application"
+    },
+    {
+      "key": "index",
+      "valueType": "STRING",
+      "description": "Index of the instance"
+    },
+  ],
+}
