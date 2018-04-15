@@ -1,3 +1,4 @@
+# vim: set tw=0:
 with import <nixpkgs> {};
 let
   bbl = stdenv.mkDerivation {
@@ -37,10 +38,34 @@ let
       chmod 755 $out/bin/cf
     '';
   };
+  uaa = stdenv.mkDerivation {
+    name = "uaac-4.1.0";
+    buildInputs = [ ruby makeWrapper ];
+    buildCommand = ''
+       GEM_HOME=$out gem install --no-doc cf-uaac --version 4.1.0
+       rm -fv $out/bin/*
+       makeWrapper ${ruby}/bin/ruby $out/bin/uaac \
+          --add-flags $out/gems/cf-uaac-4.1.0/bin/uaac \
+          --set GEM_HOME $out
+    '';
+  };
+  vegeta = stdenv.mkDerivation {
+    name = "vegeta-6.3.0";
+    src = fetchurl {
+      url = "https://github.com/tsenart/vegeta/releases/download/v6.3.0/vegeta-v6.3.0-darwin-amd64.tar.gz";
+      sha256 = "0rwbc3gcwh3s2i412l2i20na5cn1yckhiz80i13zdfdhprj35pyv";
+    };
+    buildCommand = ''
+      mkdir -p $out/bin
+      tar -xvzf $src
+      cp vegeta $out/bin/vegeta
+      chmod 755 $out/bin/vegeta
+    '';
+  };
 in
 stdenv.mkDerivation {
   name = "cfsummit-2018";
-  buildInputs = [ bosh bbl terraform ruby cf ];
+  buildInputs = [ bosh bbl terraform ruby cf uaa vegeta ];
   shellHook = ''
      alias bbl='bbl -s bbl_state'
      export BBL_GCP_SERVICE_ACCOUNT_KEY=$(pwd)/key.json
