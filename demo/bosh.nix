@@ -65,9 +65,11 @@ let
 in
 stdenv.mkDerivation {
   name = "cfsummit-2018";
-  buildInputs = [ bosh bbl terraform ruby cf uaa vegeta ];
+  buildInputs = [ bosh bbl terraform ruby cf uaa vegeta kubectl ];
   shellHook = ''
-     alias bbl='bbl -s bbl_state'
-     export BBL_GCP_SERVICE_ACCOUNT_KEY=$(pwd)/key.json
+    alias bbl='bbl -s bbl_state'
+    export BBL_GCP_SERVICE_ACCOUNT_KEY=$(pwd)/key.json
+    export GEM_HOME=$out
+    export PATH=$GEM_HOME/bin:$PATH
   '';
 }
