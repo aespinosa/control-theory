@@ -3,14 +3,17 @@ require 'net/http'
 module ControlTheory
   class Actuator
     def initialize
+      @endpoint = URI.parse 'http://127.0.0.1:8001/api/v1/namespaces/default'\
+        '/replicationcontrollers/app'
+      @http = Net::HTTP.new @endpoint.host, @endpoint.port
     end
 
-    def scale(instances=1)
-      cf "scale demo -i #{instances}"
-    end
+    def scale(replicas=1)
+      request = Net::HTTP::Patch.new @endpoint.request_uri
+      request.body = {'spec' => { 'replicas' => replicas } }.to_json
+      request['Content-Type'] = 'application/strategic-merge-patch+json'
 
-    def cf(args)
-      system "/nix/store/y43lfg6nrh9fy2ndxr7gsa08fwrl61jf-cf-6.35.2/bin/cf #{args}"
+      @http.request request
     end
   end
 end
