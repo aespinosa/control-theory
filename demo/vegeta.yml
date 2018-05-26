@@ -9,6 +9,8 @@ spec:
       labels:
         run: vegeta
     spec:
+      nodeSelector:
+        cloud.google.com/gke-nodepool: loader
       containers:
       - name: vegeta
         image: aespinosa/vegeta:latest
@@ -18,10 +20,7 @@ spec:
         command:
           - /vegeta
           - attack
-          - -output
-          - /output.bin
-          - -targets
-          - /targets.lst
-          - "-rate"
-          - "1000"
+          - -output=/output.bin
+          - -targets=/targets.lst
+          - -rate=1000
       dnsPolicy: ClusterFirst
