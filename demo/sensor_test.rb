@@ -66,6 +66,6 @@ class EmptyMetricsTest < Minitest::Test
     heapster = Metrics.new Pods.new
     heapster.extend EmptyMetrics
     
-    assert_equal 900, heapster.cpu_usage
+    assert_equal 0, heapster.cpu_usage
   end
 end
