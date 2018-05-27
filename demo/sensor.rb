@@ -38,7 +38,6 @@ module ControlTheory
     end
 
     def api_call
-      return @api_call if @api_call
       # Hard-wired selector from the replication_controller
       endpoint = URI.parse 'http://127.0.0.1:8001/api/v1'\
                            '/namespaces/default/pods'
@@ -61,7 +60,7 @@ module ControlTheory
       monitored_pods.inject(0) do |sum, pod|
         if running_pods.include? pod['metadata']['name']
           pod['containers'].inject(sum) do |s, container|
-            sum += container['usage']['cpu'].to_i 
+            s + container['usage']['cpu'].to_i 
           end 
         else
           sum
