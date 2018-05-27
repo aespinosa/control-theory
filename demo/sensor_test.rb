@@ -52,3 +52,20 @@ class SensorTest < Minitest::Test
     assert_equal 0.9, sensor.utilization
   end
 end
+
+module EmptyMetrics
+  def api_call
+    []
+  end
+end
+
+class EmptyMetricsTest < Minitest::Test
+  include ControlTheory
+
+  def test_empty_metrics
+    heapster = Metrics.new Pods.new
+    heapster.extend EmptyMetrics
+    
+    assert_equal 900, heapster.cpu_usage
+  end
+end
