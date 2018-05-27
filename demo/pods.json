@@ -1,0 +1,388 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2018-05-26T17:39:35Z",
+                "generateName": "app-",
+                "labels": {
+                    "name": "app"
+                },
+                "name": "app-one",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "extensions/v1beta1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "app",
+                        "uid": "97075e5c-6104-11e8-841a-42010a80027c"
+                    }
+                ],
+                "resourceVersion": "35454",
+                "selfLink": "/api/v1/namespaces/default/pods/app-one",
+                "uid": "c1678d60-610b-11e8-841a-42010a80027c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "aespinosa/stress",
+                        "imagePullPolicy": "Always",
+                        "name": "app",
+                        "resources": {
+                            "requests": {
+                                "cpu": "500m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-sc9pq",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "gke-demo-application-f9c7869a-kfjn",
+                "nodeSelector": {
+                    "cloud.google.com/gke-nodepool": "application"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-sc9pq",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-sc9pq"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2018-05-27T02:01:16Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2018-05-27T02:01:33Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2018-05-27T02:01:16Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://f27da4516697a90b99b38ecfa2c3c82256ba71d220dc7d047b538b35c346e236",
+                        "image": "aespinosa/stress:latest",
+                        "imageID": "docker-pullable://aespinosa/stress@sha256:2c90253f527430baadc4e352b95e0eef109e5f39c76bb916d57dede0c2898476",
+                        "lastState": {},
+                        "name": "app",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2018-05-27T02:01:32Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "10.128.0.3",
+                "phase": "Running",
+                "podIP": "10.0.5.5",
+                "qosClass": "Burstable",
+                "startTime": "2018-05-27T02:01:16Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2018-05-26T17:39:35Z",
+                "generateName": "app-",
+                "labels": {
+                    "name": "app"
+                },
+                "name": "app-two",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "extensions/v1beta1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "app",
+                        "uid": "97075e5c-6104-11e8-841a-42010a80027c"
+                    }
+                ],
+                "resourceVersion": "35448",
+                "selfLink": "/api/v1/namespaces/default/pods/app-two",
+                "uid": "c170423b-610b-11e8-841a-42010a80027c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "aespinosa/stress",
+                        "imagePullPolicy": "Always",
+                        "name": "app",
+                        "resources": {
+                            "requests": {
+                                "cpu": "500m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-sc9pq",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "gke-demo-application-f9c7869a-kfjn",
+                "nodeSelector": {
+                    "cloud.google.com/gke-nodepool": "application"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-sc9pq",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-sc9pq"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2018-05-27T02:01:15Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2018-05-27T02:01:32Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2018-05-27T02:01:15Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://c3bd3da41684202bfb3767d953971e25759173d8fa95010ffbac9d8553b24a58",
+                        "image": "aespinosa/stress:latest",
+                        "imageID": "docker-pullable://aespinosa/stress@sha256:2c90253f527430baadc4e352b95e0eef109e5f39c76bb916d57dede0c2898476",
+                        "lastState": {},
+                        "name": "app",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2018-05-27T02:01:32Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "10.128.0.3",
+                "phase": "Running",
+                "podIP": "10.0.5.4",
+                "qosClass": "Burstable",
+                "startTime": "2018-05-27T02:01:15Z"
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Pod",
+            "metadata": {
+                "creationTimestamp": "2018-05-26T17:40:35Z",
+                "generateName": "app-",
+                "labels": {
+                    "name": "app"
+                },
+                "name": "app-three",
+                "namespace": "default",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "extensions/v1beta1",
+                        "blockOwnerDeletion": true,
+                        "controller": true,
+                        "kind": "ReplicaSet",
+                        "name": "app",
+                        "uid": "97075e5c-6104-11e8-841a-42010a80027c"
+                    }
+                ],
+                "resourceVersion": "35447",
+                "selfLink": "/api/v1/namespaces/default/pods/app-three",
+                "uid": "e57f2c14-610b-11e8-841a-42010a80027c"
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "image": "aespinosa/stress",
+                        "imagePullPolicy": "Always",
+                        "name": "app",
+                        "resources": {
+                            "requests": {
+                                "cpu": "500m"
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "terminationMessagePolicy": "File",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                                "name": "default-token-sc9pq",
+                                "readOnly": true
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": "ClusterFirst",
+                "nodeName": "gke-demo-application-f9c7869a-kfjn",
+                "nodeSelector": {
+                    "cloud.google.com/gke-nodepool": "application"
+                },
+                "restartPolicy": "Always",
+                "schedulerName": "default-scheduler",
+                "securityContext": {},
+                "serviceAccount": "default",
+                "serviceAccountName": "default",
+                "terminationGracePeriodSeconds": 30,
+                "tolerations": [
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/not-ready",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    },
+                    {
+                        "effect": "NoExecute",
+                        "key": "node.kubernetes.io/unreachable",
+                        "operator": "Exists",
+                        "tolerationSeconds": 300
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "default-token-sc9pq",
+                        "secret": {
+                            "defaultMode": 420,
+                            "secretName": "default-token-sc9pq"
+                        }
+                    }
+                ]
+            },
+            "status": {
+                "conditions": [
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2018-05-27T02:01:14Z",
+                        "status": "True",
+                        "type": "Initialized"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2018-05-27T02:01:32Z",
+                        "status": "True",
+                        "type": "Ready"
+                    },
+                    {
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2018-05-27T02:01:14Z",
+                        "status": "True",
+                        "type": "PodScheduled"
+                    }
+                ],
+                "containerStatuses": [
+                    {
+                        "containerID": "docker://82b378889496535f90a8aaeca559005d9e84d6c9ae0a437b74e1339ce31bba3b",
+                        "image": "aespinosa/stress:latest",
+                        "imageID": "docker-pullable://aespinosa/stress@sha256:2c90253f527430baadc4e352b95e0eef109e5f39c76bb916d57dede0c2898476",
+                        "lastState": {},
+                        "name": "app",
+                        "ready": true,
+                        "restartCount": 0,
+                        "state": {
+                            "running": {
+                                "startedAt": "2018-05-27T02:01:31Z"
+                            }
+                        }
+                    }
+                ],
+                "hostIP": "10.128.0.3",
+                "phase": "Pending",
+                "podIP": "10.0.5.3",
+                "qosClass": "Burstable",
+                "startTime": "2018-05-27T02:01:14Z"
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}

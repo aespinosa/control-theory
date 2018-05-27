@@ -1,20 +1,66 @@
 {
-  "name": "",
-  "description": "CPU Usage of an Application Instance",
-  "displayName": "CPU Usage",
-  "type": "custom.googleapis.com/cloudfoundry/cpu",
-  "metricKind": "GAUGE",
-  "valueType": "DOUBLE",
-  "labels": [
+  "kind": "PodMetricsList",
+  "apiVersion": "metrics.k8s.io/v1beta1",
+  "metadata": {
+    "selfLink": "/apis/metrics.k8s.io/v1beta1/namespaces/default/pods/"
+  },
+  "items": [
     {
-      "key": "application",
-      "valueType": "STRING",
-      "description": "Name of the application"
+      "metadata": {
+        "name": "app-one",
+        "namespace": "default",
+        "selfLink": "/apis/metrics.k8s.io/v1beta1/namespaces/default/pods/app-one",
+        "creationTimestamp": "2018-05-26T17:30:35Z"
+      },
+      "timestamp": "2018-05-26T17:30:00Z",
+      "window": "1m0s",
+      "containers": [
+        {
+          "name": "app",
+          "usage": {
+            "cpu": "300m",
+            "memory": "160452Ki"
+          }
+        }
+      ]
     },
     {
-      "key": "index",
-      "valueType": "STRING",
-      "description": "Index of the instance"
+      "metadata": {
+        "name": "app-two",
+        "namespace": "default",
+        "selfLink": "/apis/metrics.k8s.io/v1beta1/namespaces/default/pods/app-two",
+        "creationTimestamp": "2018-05-26T17:30:35Z"
+      },
+      "timestamp": "2018-05-26T17:30:00Z",
+      "window": "1m0s",
+      "containers": [
+        {
+          "name": "app",
+          "usage": {
+            "cpu": "600m",
+            "memory": "9192Ki"
+          }
+        }
+      ]
     },
-  ],
+    {
+      "metadata": {
+        "name": "app-three",
+        "namespace": "default",
+        "selfLink": "/apis/metrics.k8s.io/v1beta1/namespaces/default/pods/app-three",
+        "creationTimestamp": "2018-05-26T17:30:35Z"
+      },
+      "timestamp": "2018-05-26T17:30:00Z",
+      "window": "1m0s",
+      "containers": [
+        {
+          "name": "app",
+          "usage": {
+            "cpu": "500m",
+            "memory": "9820Ki"
+          }
+        }
+      ]
+    }
+  ]
 }
