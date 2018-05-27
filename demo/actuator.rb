@@ -3,8 +3,8 @@ require 'net/http'
 module ControlTheory
   class Actuator
     def initialize
-      @endpoint = URI.parse 'http://127.0.0.1:8001/api/v1/namespaces/default'\
-        '/replicationcontrollers/app'
+      @endpoint = URI.parse 'http://127.0.0.1:8001/apis/apps/v1'\
+        '/namespaces/default/replicasets/app/scale'
       @http = Net::HTTP.new @endpoint.host, @endpoint.port
     end
 
