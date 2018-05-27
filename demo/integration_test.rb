@@ -11,9 +11,9 @@ class IntegrationTest < Minitest::Test
     assert_equal 400, pods.cpu_request
   end
 
-  def test_heapster
+  def test_metrics
     pods = Pods.new
-    heapster = Heapster.new pods
+    heapster = Metrics.new pods
 
     assert_equal 0, heapster.cpu_usage
   end
