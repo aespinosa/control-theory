@@ -15,15 +15,16 @@ class Controller
 
   def work(actual)
     error = @target - actual
-    puts "Error #{error}"
     @total_error += error
+    puts "Error: #{error} Total: #{@total_error}"
+    puts "u(t): #{@k_p * error} Total: #{@k_i * @total_error}"
 
     (@k_p * error + @k_i * @total_error + @operating_point).ceil
   end
 end
 
 # u[k] = -0.1 * e[k]
-controller = Controller.new 260.0, -0.1, 0.0, 70.0
+controller = Controller.new 0.55, -60.0, -30.0, 55.0
 
 require 'socket'
 
@@ -31,14 +32,9 @@ while true do
   output = sensor.utilization
 
   instances = controller.work output
-
   actuator.scale instances
-  now = Time.now.to_i
-  TCPSocket.open 'graphite.dev', '2003' do |graphite|
-    graphite.puts "demo.replication_controller.replicas #{instances} #{now}"
-    puts "demo.replication_controller.replicas #{instances} #{now}"
-    graphite.puts "demo.pods.cpu_utilization #{output} #{now}"
-    puts "demo.pods.cpu_utilization #{output} #{now}"
-  end
-  sleep 5
+
+  puts output
+  puts instances
+  sleep 120
 end
