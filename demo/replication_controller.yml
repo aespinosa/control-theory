@@ -22,5 +22,8 @@ spec:
       - name: app
         resources:
           requests:
-            cpu: 500m
+            cpu: 250m
+          limits:
+            cpu: 250m
         image: aespinosa/stress
+        imagePullPolicy: Always
