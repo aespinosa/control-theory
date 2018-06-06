@@ -20,7 +20,7 @@ module ControlTheory
     def cpu_request
       running_pods.inject(0) do |sum, pod| 
         pod['spec']['containers'].inject(sum) do |s, container|
-          s + container['resources']['requests']['cpu'].to_i
+          s + container['resources']['limits']['cpu'].to_i
         end
       end
     end
