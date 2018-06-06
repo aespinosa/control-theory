@@ -25,7 +25,7 @@ instance YesodDispatch App where
     yesodRunner handleRootR env Nothing req
 
 randomNumbers :: StdGen -> [Float]
-randomNumbers g = take 100 $ fmap sqrt $ randomRs (1.0, 1000.0) g
+randomNumbers g = take 10 $ fmap sqrt $ randomRs (1.0, 1000000.0) g
 
 type Handler = HandlerT App IO
 

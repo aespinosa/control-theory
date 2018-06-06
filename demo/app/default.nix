@@ -23,7 +23,7 @@ let app = stdenv.mkDerivation {
 }; in
 
 dockerTools.buildImage {
-  name = "stress";
+  name = "aespinosa/stress";
 
   contents = app;
 
