@@ -14,13 +14,18 @@ spec:
       containers:
       - name: vegeta
         image: aespinosa/vegeta:latest
+        imagePullPolicy: Always
         resources:
           requests:
-            cpu: 500m
+            cpu: 1000m
+          limits:
+            cpu: 1000m
         command:
           - /vegeta
+          - -cpus=1
           - attack
-          - -output=/output.bin
+          - -output=/dev/null
           - -targets=/targets.lst
-          - -rate=1000
+          - -timeout=5s
+          - -rate=4000
       dnsPolicy: ClusterFirst
