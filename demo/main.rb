@@ -23,7 +23,8 @@ class Controller
   end
 end
 
-# u[k] = -0.1 * e[k]
+# u[k] = -60.0 * e[k] + -30.0 ∑e[k] + 55.0
+#                           r[k]  K_p    K_i    u[k]
 controller = Controller.new 0.55, -60.0, -30.0, 55.0
 
 require 'socket'
