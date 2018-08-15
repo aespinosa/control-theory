@@ -27,8 +27,6 @@ end
 #                           r[k]  K_p    K_i    u[k]
 controller = Controller.new 0.55, -60.0, -30.0, 55.0
 
-require 'socket'
-
 while true do
   output = sensor.utilization # y[k]
 
